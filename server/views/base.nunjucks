@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Money Manage</title>
+
+    {% block cssLinks %}
+    <link rel="stylesheet" href="{{ SITE_URL }}/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% endblock %}
+
+  </head>
+  <body>
+    {% block header %}
+      {% include './partials/header.nunjucks' %}
+    {% endblock %}
+
+    {% block breadcrumbs %}
+      {% include './partials/breadcrumbs.nunjucks' %}
+    {% endblock %}
+
+    {% block content %}{% endblock %}
+
+    {% include './partials/footer.nunjucks' %}
+
+    {% if not IN_PRODUCTION %}
+      {% include './partials/devDebugger.nunjucks' %}
+    {% endif %}
+
+    {% block javascript %}
+    {% endblock %}
+  </body>
+</html>

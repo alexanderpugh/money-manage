@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col col-sm-12">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr class="info">
+            <th>NAME</th>
+            <th>DESCRIPTION</th>
+            <th>TOTAL</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for expense in set.expenses %}
+            <tr id="expense-{{ expense.id }}">
+              <td>{{ expense.name }}</td>
+              <td>{{ expense.description }}</td>
+              <td>
+                <ul>
+                  <li>
+                    Yearly: £{{ expense.totalYearly  | decimal }}
+                  </li>
+                  <li>
+                    Monthly: £{{ (expense.totalYearly / 12) | decimal}}
+                  </li>
+                  <li>
+                    Weekly: £{{ (expense.totalYearly / 52) | decimal }}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <form action="{{ SITE_URL }}/expenses/edit-set-{{ set.id }}/delete-{{ expense.id }}" method="post">
+                  <a href="{{ SITE_URL }}/expenses/edit-set-{{ set.id }}/{{ expense.id }}" class="btn btn-info btn-xs">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    edit
+                  </a>
+                  <button type="submit" class="btn btn-warning btn-xs">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <a href="{{ SITE_URL }}/expenses/edit-set-{{ set.id }}/create-expense" class="btn btn-success btn-sm">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      create new expense
+    </a>
+  </div>
+</div>

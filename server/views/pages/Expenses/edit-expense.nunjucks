@@ -1,0 +1,63 @@
+{% extends 'base.nunjucks' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <form action="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ SITE_URL }}/expenses/edit-set-{{ vm.expense.expenseSetId }}/{{vm.expense.id}}{% elif vm.subPage == 'CREATE_EXPENSE' %}{{ SITE_URL }}/expenses/edit-set-{{ vm.expenseSetId }}/create-expense{% endif %}" method="post" data-totalYearly="{{ vm.expense.totalYearly }}">
+        <legend>{% if vm.subPage == 'EDIT_EXPENSE' %}Edit{% elif vm.subPage == 'CREATE_EXPENSE' %}Create{% endif %} Expense</legend>
+        <div class="form-group">
+          <label for="inputName" class="col-lg-2 control-label">Name</label>
+          <div class="col-lg-10">
+            <input required type="text" name="name" class="form-control" id="inputName" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ vm.expense.name }}{% endif %}" placeholder="Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textDescription" class="col-lg-2 control-label">Description</label>
+          <div class="col-lg-10">
+            <textarea required class="form-control" name="description" rows="3" id="textDescription">{% if vm.subPage == 'EDIT_EXPENSE' %}{{ vm.expense.description }}{% endif %}</textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="totalYearly" class="col-lg-2 control-label">Total Yearly</label>
+          <div class="col-lg-10">
+          <div class="input-group">
+            <span class="input-group-addon">£</span>
+              <input required type="number" step=0.01 name="totalYearly" v-model="totalYearly" v-on:change="onTotalYearlyChanged" class="form-control" id="totalYearly" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ vm.expense.totalYearly | decimal  }}{% endif %}">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="totalMonthly" class="col-lg-2 control-label">Total Monthly</label>
+          <div class="col-lg-10">
+            <div class="input-group">
+              <span class="input-group-addon">£</span>
+              <input type="number" name="totalMonthly" step=0.01 v-model="totalMonthly" v-on:change="onTotalMonthlyChanged" class="form-control" id="totalMonthly" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ (vm.expense.totalYearly / 12) | decimal  }}{% endif %}">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="totalWeekly" class="col-lg-2 control-label">Total Weekly</label>
+          <div class="col-lg-10">
+            <div class="input-group">
+              <span class="input-group-addon">£</span>
+              <input type="number" name="totalWeekly" step=0.01 v-model="totalWeekly" v-on:change="onTotalWeeklyChanged" class="form-control" id="totalWeekly" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ (vm.expense.totalYearly / 52) | decimal }}{% endif %}">
+            </div>
+            <span class="help-block"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <a href="{{ SITE_URL }}/expenses" class="btn btn-default">Cancel</a>
+            <button type="reset" class="btn btn-warning">Undo</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block javascript %}
+  <script src="{{ SITE_URL }}/form.js"></script>
+{% endblock %}

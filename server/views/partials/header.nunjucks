@@ -1,0 +1,29 @@
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{{ SITE_URL }}">Money Manage</a>
+            </div>
+
+            <div>
+                <ul class="nav navbar-nav">
+                  <li {% if vm.currentPage == 'HOME' %}class="active"{% endif %}>
+                      <a href="{{ SITE_URL }}">HOME</a>
+                  </li>
+                  <li {% if vm.currentPage == 'EXPENSES' %}class="active"{% endif %}>
+                      <a href="{{ SITE_URL }}/expenses">EXPENSES</a>
+                  </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <a href="{{ SITE_URL }}/registration/logout">
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>
+                      LOG OUT
+                    </a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

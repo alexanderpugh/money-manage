@@ -1,0 +1,29 @@
+{
+  "plugins": [],
+  "recurseDepth": 10,
+  "source": {
+    "include": [
+      "./server/utilities/",
+      "./server/models/",
+      "./server/config/",
+      "./server/services/"
+    ]
+  },
+  "sourceType": "module",
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [
+      "jsdoc",
+      "closure"
+    ]
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "readme": true
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true
+  }
+}

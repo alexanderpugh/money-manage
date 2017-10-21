@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-12">
+      <a href="{{ SITE_URL }}/expenses/create-set" class="btn btn-default">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+        Create new Set
+      </a>
+    </div>
+  </div>
+</div>

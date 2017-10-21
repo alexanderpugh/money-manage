@@ -1,0 +1,18 @@
+{% extends 'base.nunjucks' %}
+
+{% block content %}
+  {% include 'pages/Expenses/partials/create-set-button.nunjucks' %}
+
+  {% if vm.expenseSets | length == 0 %}
+    {% include 'pages/Expenses/partials/no-sets-message.nunjucks' %}
+  {% endif %}
+
+  {% for set in vm.expenseSets %}
+    <div class="container" id="expense-set-{{ set.id }}">
+      {% include 'pages/Expenses/partials/set-actions.nunjucks' %}
+      {% include 'pages/Expenses/partials/set-summary.nunjucks' %}
+      {% include 'pages/Expenses/partials/set-expenses.nunjucks' %}
+      <hr>
+    </div>
+  {% endfor %}
+{% endblock %}

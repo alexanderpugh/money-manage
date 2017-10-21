@@ -1,0 +1,13 @@
+{% extends 'base.nunjucks' %}
+
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>500</h1>
+      <p>Something went wrong...</p>
+      <pre>
+        {{ vm.error }}
+      </pre>
+    </div>
+  </div>
+{% endblock %}

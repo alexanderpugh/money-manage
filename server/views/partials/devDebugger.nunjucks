@@ -1,0 +1,18 @@
+<script>
+  // Login to dev
+  {% if vm.currentPage == 'REGISTRATION' %}
+    var $loginForm = document.querySelector('#login-form');
+    $loginForm.querySelector('input').value = 'dev';
+    $loginForm.querySelectorAll('input')[1].value = 'password';
+    $loginForm.submit();
+  {% endif %}
+
+  // go to expenses page
+  {% if vm.currentPage == 'HOME' %}
+    //window.location.href = '{{ SITE_URL }}/expenses';
+  {% endif %}
+</script>
+
+<pre>
+  {{ vm | dump }}
+</pre>

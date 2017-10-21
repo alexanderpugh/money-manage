@@ -1,0 +1,29 @@
+<div class="container">
+  <ul class="breadcrumb">
+    <li class="{% if vm.currentPage == 'HOME' %}active{% endif %}">
+      {% if vm.currentPage != 'HOME' %}<a href="{{ SITE_URL }}">Home</a>{% else %}Home{% endif %}
+    </li>
+    {% if vm.currentPage == 'EXPENSES' %}
+      <li class="{% if not vm.subPage %}active{% endif %}">
+        {% if vm.subPage %}<a href="{{ SITE_URL }}/expenses">Expenses</a>{% else %}Expenses{% endif %}
+      </li>
+      {% if vm.subPage == 'CREATE_SET' %}
+        <li class="active">
+          Create set
+        </li>
+      {% elif vm.subPage == 'EDIT_SET' %}
+        <li class="active">
+          Edit set
+        </li>
+      {% elif vm.subPage == 'CREATE_EXPENSE' %}
+        <li class="active">
+          Create expense
+        </li>
+      {% elif vm.subPage == 'EDIT_EXPENSE' %}
+        <li class="active">
+          Edit expense
+        </li>
+      {% endif %}
+    {% endif %}
+  </ul>
+</div>

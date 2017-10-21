@@ -1,0 +1,4 @@
+public/*.js
+server/data/*
+node_modules/
+TODO.txt

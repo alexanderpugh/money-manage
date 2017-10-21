@@ -1,0 +1,10 @@
+{% extends 'base.nunjucks' %}
+
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Money Manage</h1>
+      <p>Total Annual Expenditures: £{{ vm.expenseSetsTotal | decimal }}</p>
+    </div>
+  </div>
+{% endblock %}

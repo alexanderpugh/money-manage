@@ -1,0 +1,37 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Login</h3>
+  </div>
+  <form class="form-horizontal" method="post" action="{{ SITE_URL }}/registration/login" id="login-form">
+    <fieldset>
+      <div class="form-group {% if vm.loginError %}has-error{% endif %}">
+        <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" name="username" id="inputUsername" placeholder="Username">
+        </div>
+      </div>
+      <div class="form-group {% if vm.loginError %}has-error{% endif %}">
+        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-10">
+          <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="submit" class="btn btn-default">
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+            Login
+          </button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+{% if vm.loginError %}
+  <div class="alert alert-danger">
+    <strong>Unable to log in: </strong>
+    The provided details are not valid.
+  </div>
+{% endif %}
+
