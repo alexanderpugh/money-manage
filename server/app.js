@@ -25,10 +25,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
-// if (process.env.NODE_ENV === 'development') {
-  app.use('/docs', express.static(path.join(__dirname, '../docs')));
-// }
-
 app.use(registrationController.base, registrationController.router);
 app.use(sessionCheckMiddleware);
 app.use(homeController.base, homeController.router);
