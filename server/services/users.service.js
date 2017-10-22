@@ -4,6 +4,14 @@ const saltValue = require('../utilities/saltValue');
 
 const passwordRuleRegX = /^([a-zA-Z0-9_-]){3,10}$/;
 
+/**
+ * User signup
+ *
+ * @param {object} param
+ * @param {string} param.username
+ * @param {string} param.password
+ * @return {object} - the user object
+ */
 module.exports.signup = async ({ username, password }) => {
   try {
     if (!valueValid(passwordRuleRegX, password)) {
@@ -22,6 +30,14 @@ module.exports.signup = async ({ username, password }) => {
   }
 };
 
+/**
+ * User login
+ *
+ * @param {object} param
+ * @param {string} param.username
+ * @param {string} param.password
+ * @return {object} - the user object
+ */
 module.exports.login = async ({ username, password }) => {
   try {
     if (!valueValid(passwordRuleRegX, password)) {
@@ -46,6 +62,13 @@ module.exports.login = async ({ username, password }) => {
   }
 };
 
+/**
+ * Check if a username exists
+ *
+ * @param {object} param
+ * @param {string} param.username
+ * @return {boolean}
+ */
 module.exports.userExists = async ({ username }) => {
   try {
     const searchedUser = await db.users.findOne({

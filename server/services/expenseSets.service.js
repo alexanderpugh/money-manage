@@ -2,6 +2,15 @@ const db = require('../config/db.js');
 
 const expenseSetsService = {};
 
+/**
+ * Create a new expense set
+ *
+ * @param {object} param
+ * @param {string} param.name - the expense set name
+ * @param {string} param.description - the expense set description
+ * @param {string} param.userId - the id of the expense set owner
+ * @return {object} - the newly created expense set
+ */
 expenseSetsService.create = async ({ name, description, userId }) => {
   try {
     const newExpenseSet = await db.expenseSets.create({
@@ -16,6 +25,17 @@ expenseSetsService.create = async ({ name, description, userId }) => {
   }
 };
 
+/**
+ * Edit an existing expense set
+ *
+ * @param {object} param
+ * @param {string} param.name - the expense set name
+ * @param {string} param.description - the expense set description
+ * @param {string} param.userId - the id of the expense set owner
+ * @param {number} param.totalYearly - the total cost for a year
+ * @param {string} param.expenseSetId - the id of the expense set
+ * @return {object} - the edited expense set
+ */
 expenseSetsService.edit = async ({ name = null, description = null, userId, totalYearly = null, expenseSetId }) => {
   const updatedInputs = { expenseSetId, userId };
   if (name) {
@@ -39,6 +59,15 @@ expenseSetsService.edit = async ({ name = null, description = null, userId, tota
   }
 };
 
+/**
+ * Add to the expense sets total annual cost
+ *
+ * @param {object} param
+ * @param {number} param.value - the amount being added
+ * @param {string} param.userId - the id of the expense set owner
+ * @param {string} param.expenseSetId - the id of the expense set
+ * @return {object} - the newly edited expense set
+ */
 expenseSetsService.addToTotalYearly = async ({ value, userId, expenseSetId }) => {
   const updatedInputs = {};
 
@@ -59,6 +88,16 @@ expenseSetsService.addToTotalYearly = async ({ value, userId, expenseSetId }) =>
   }
 };
 
+/**
+ * Edit the expense sets total annual cost
+ *
+ * @param {object} param
+ * @param {number} param.originalValue - the value before changing
+ * @param {number} param.newValue - the amount being being changed to
+ * @param {string} param.userId - the id of the expense set owner
+ * @param {string} param.expenseSetId - the id of the expense set
+ * @return {object} - the edited created expense set
+ */
 expenseSetsService.editTotalYearly = async ({ originalValue, newValue, userId, expenseSetId }) => {
   const updatedInputs = {};
 
@@ -79,6 +118,14 @@ expenseSetsService.editTotalYearly = async ({ originalValue, newValue, userId, e
   }
 };
 
+/**
+ * Fetch a single expense set
+ *
+ * @param {object} param
+ * @param {string} param.userId - the id of the expense set owner
+ * @param {string} param.expenseSetId - the id of the expense set
+ * @return {object} - the fetched expense set
+ */
 expenseSetsService.fetchOne = async ({ userId, expenseSetId }) => {
   try {
     const fetchedExpenseSet = await db.expenseSets.findOne({
@@ -91,6 +138,13 @@ expenseSetsService.fetchOne = async ({ userId, expenseSetId }) => {
   }
 };
 
+/**
+ * Fetch multiple expense sets
+ *
+ * @param {object} param
+ * @param {string} param.userId - the id of the expense set owner
+ * @return {array} - the fetched expense sets
+ */
 expenseSetsService.fetchAll = async ({ userId }) => {
   try {
     const fetchedExpenseSets = await db.expenseSets.findAll({
@@ -106,6 +160,12 @@ expenseSetsService.fetchAll = async ({ userId }) => {
   }
 };
 
+/**
+ * Get the total yearly cost of all sets
+ *
+ * @param {string} param.userId - the id of the expense sets owner
+ * @return {number} - the total yearly for all sets
+ */
 expenseSetsService.getTotalYearlyTotal = async ({ userId }) => {
   try {
     const fetchedExpenseSets = await db.expenseSets.findAll({
@@ -123,6 +183,14 @@ expenseSetsService.getTotalYearlyTotal = async ({ userId }) => {
   }
 };
 
+/**
+ * Delete a single expense sets
+ *
+ * @param {object} param
+ * @param {string} param.userId - the id of the expense set owner
+ * @param {string} param.expenseSetId - the id of the expense set
+ * @return {number} - the number of deleted sets
+ */
 expenseSetsService.delete = async ({ userId, expenseSetId }) => {
   const updatedInputs = { expenseSetId, userId };
 

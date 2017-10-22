@@ -4,7 +4,7 @@ const expenseSetsService = require('./expenseSets.service');
 const expenseService = {};
 
 /**
- * create a new expense
+ * Create a new expense
  *
  * @param {object} param
  * @param {string} param.name - the expense name
@@ -12,7 +12,7 @@ const expenseService = {};
  * @param {number} param.totalYearly - the cost for a year
  * @param {string} param.userId - the id of the expense owner
  * @param {string} param.expenseSetId - the id of the expense set the expense is in
- * @return {object} - the mewly created expense
+ * @return {object} - the newly created expense
  */
 expenseService.create = async ({ name, description, totalYearly, userId, expenseSetId }) => {
   try {
@@ -24,6 +24,18 @@ expenseService.create = async ({ name, description, totalYearly, userId, expense
   }
 };
 
+/**
+ * Edit an existing expense
+ *
+ * @param {object} param
+ * @param {string} param.name - the expense name
+ * @param {string} param.description - the expense description
+ * @param {number} param.totalYearly - the cost for a year
+ * @param {string} param.userId - the id of the expense owner
+ * @param {string} param.expenseSetId - the id of the expense set the expense is in
+ * @param {string} param.expenseId - the id of the expense being edited
+ * @return {object} - the edited expense
+ */
 expenseService.edit = async ({ name, description, totalYearly, userId, expenseSetId, expenseId }) => {
   try {
     const currentExpense = await db.expenses.findOne({
@@ -50,6 +62,15 @@ expenseService.edit = async ({ name, description, totalYearly, userId, expenseSe
   }
 };
 
+/**
+ * Delete an existing expense
+ *
+ * @param {object} param
+ * @param {string} param.expenseSetId - the id of the expense set the expense is in
+ * @param {string} param.expenseId - the id of the expense being deleted
+ * @param {string} param.userId - the id of the expense owner
+ * @return {number} - the number of removed items
+ */
 expenseService.delete = async ({ expenseSetId, expenseId = null, userId }) => {
   const where = { expenseSetId, userId };
 
@@ -66,6 +87,15 @@ expenseService.delete = async ({ expenseSetId, expenseId = null, userId }) => {
   }
 };
 
+/**
+ * Fetch an expense
+ *
+ * @param {object} param
+ * @param {string} param.expenseSetId - the id of the expense set the expense is in
+ * @param {string} param.expenseId - the id of the expense being fetched
+ * @param {string} param.userId - the id of the expense owner
+ * @return {object} - the fetched expense
+ */
 expenseService.fetchOne = async ({ expenseSetId, expenseId, userId }) => {
   try {
     const fetchedExpense = await db.expenses.findOne({
