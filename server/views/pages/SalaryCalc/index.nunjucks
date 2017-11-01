@@ -1,0 +1,11 @@
+{% extends 'base.nunjucks' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-12">
+        Salary Calc comming soon.
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -16,6 +16,24 @@ module.exports = (connection) => {
     password: {
       type: Sequelize.STRING,
       required: true
+    },
+    firstName: {
+      type: Sequelize.STRING,
+      defaultValue: 'First',
+      allowNull: true,
+      required: false
+    },
+    lastName: {
+      type: Sequelize.STRING,
+      defaultValue: 'Last',
+      allowNull: true,
+      required: false
+    },
+    dob: {
+      type: Sequelize.DATE,
+      defaultValue: new Date(),
+      allowNull: true,
+      required: false
     }
   });
 

@@ -1,6 +1,11 @@
 <script>
-  // Login to dev
-  {% if vm.currentPage == 'REGISTRATION' %}
+  // Login to dev or signup
+  {% if vm.loginError %}
+    var $loginForm = document.querySelector('#signup-form');
+    $loginForm.querySelector('input').value = 'dev';
+    $loginForm.querySelectorAll('input')[1].value = 'password';
+    $loginForm.submit();
+  {% elif vm.currentPage == 'REGISTRATION' %}
     var $loginForm = document.querySelector('#login-form');
     $loginForm.querySelector('input').value = 'dev';
     $loginForm.querySelectorAll('input')[1].value = 'password';

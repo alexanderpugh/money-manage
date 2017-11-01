@@ -1,8 +1,6 @@
 const db = require('../config/db.js');
 const expenseSetsService = require('./expenseSets.service');
 
-const expenseService = {};
-
 /**
  * Create a new expense
  *
@@ -14,7 +12,7 @@ const expenseService = {};
  * @param {string} param.expenseSetId - the id of the expense set the expense is in
  * @return {object} - the newly created expense
  */
-expenseService.create = async ({ name, description, totalYearly, userId, expenseSetId }) => {
+const create = async ({ name, description, totalYearly, userId, expenseSetId }) => {
   try {
     const newExpense = await db.expenses.create({ name, description, totalYearly, userId, expenseSetId });
 
@@ -36,7 +34,7 @@ expenseService.create = async ({ name, description, totalYearly, userId, expense
  * @param {string} param.expenseId - the id of the expense being edited
  * @return {object} - the edited expense
  */
-expenseService.edit = async ({ name, description, totalYearly, userId, expenseSetId, expenseId }) => {
+const edit = async ({ name, description, totalYearly, userId, expenseSetId, expenseId }) => {
   try {
     const currentExpense = await db.expenses.findOne({
       where: { userId, expenseSetId, id: expenseId }
@@ -71,7 +69,7 @@ expenseService.edit = async ({ name, description, totalYearly, userId, expenseSe
  * @param {string} param.userId - the id of the expense owner
  * @return {number} - the number of removed items
  */
-expenseService.delete = async ({ expenseSetId, expenseId = null, userId }) => {
+const remove = async ({ expenseSetId, expenseId = null, userId }) => {
   const where = { expenseSetId, userId };
 
   if (expenseId) {
@@ -96,7 +94,7 @@ expenseService.delete = async ({ expenseSetId, expenseId = null, userId }) => {
  * @param {string} param.userId - the id of the expense owner
  * @return {object} - the fetched expense
  */
-expenseService.fetchOne = async ({ expenseSetId, expenseId, userId }) => {
+const fetchOne = async ({ expenseSetId, expenseId, userId }) => {
   try {
     const fetchedExpense = await db.expenses.findOne({
       where: { expenseSetId, id: expenseId, userId }
@@ -108,4 +106,9 @@ expenseService.fetchOne = async ({ expenseSetId, expenseId, userId }) => {
   }
 };
 
-module.exports = expenseService;
+module.exports = {
+  create,
+  edit,
+  remove,
+  fetchOne
+};

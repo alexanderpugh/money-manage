@@ -13,6 +13,12 @@
                   <li {% if vm.currentPage == 'EXPENSES' %}class="active"{% endif %}>
                       <a href="{{ SITE_URL }}/expenses">EXPENSES</a>
                   </li>
+                  <li {% if vm.currentPage == 'SALARY_CALC' %}class="active"{% endif %}>
+                      <a href="{{ SITE_URL }}/salary-calc">SALARY CALC</a>
+                  </li>
+                  <li {% if vm.currentPage == 'SETTINGS' %}class="active"{% endif %}>
+                      <a href="{{ SITE_URL }}/settings">SETTINGS</a>
+                  </li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

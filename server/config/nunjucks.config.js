@@ -22,4 +22,6 @@ module.exports = ({ app }) => {
   config.addGlobal('IN_PRODUCTION', process.env.NODE_ENV !== 'development');
 
   config.addFilter('decimal', value => decimal(value));
+
+  config.addFilter('date', date => date.formatForHTML());
 };

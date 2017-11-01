@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">Signup</h3>
   </div>
-  <form class="form-horizontal" method="post" action="{{ SITE_URL }}/registration/signup">
+  <form class="form-horizontal" method="post" id="signup-form" action="{{ SITE_URL }}/registration/signup">
     <fieldset>
       <div class="form-group {% if vm.signupError %}has-error{% endif %}">
         <label for="inputUsername" class="col-lg-2 control-label">Username</label>

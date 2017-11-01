@@ -24,6 +24,14 @@
           Edit expense
         </li>
       {% endif %}
+    {% elif vm.currentPage == 'SALARY_CALC' %}
+      <li class="active">
+        Salary calc
+      </li>
+    {% elif vm.currentPage == 'SETTINGS' %}
+      <li class="active">
+        Settings
+      </li>
     {% endif %}
   </ul>
 </div>

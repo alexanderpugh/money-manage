@@ -81,3 +81,35 @@ module.exports.userExists = async ({ username }) => {
     throw error;
   }
 };
+
+module.exports.getDetails = async ({ userId }) => {
+  try {
+    const searchedUser = await db.users.findOne({
+      where: {
+        id: userId
+      }
+    });
+
+    return {
+      firstName: searchedUser.firstName,
+      lastName: searchedUser.lastName,
+      dob: searchedUser.dob
+    };
+
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports.updateDetails = async ({ userId, firstName, lastName, dob }) => {
+  try {
+    return await db.users.update({ firstName, lastName, dob }, {
+      where: {
+        id: userId
+      }
+    });
+
+  } catch (error) {
+    throw error;
+  }
+};

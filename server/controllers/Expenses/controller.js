@@ -193,7 +193,7 @@ module.exports = {
           userId: req.session.userId
         });
 
-        const expenseDeleted = await expensesService.delete({
+        const expenseDeleted = await expensesService.remove({
           expenseSetId: req.params.expenseSetId,
           expenseId: req.params.expenseId,
           userId: req.session.userId
@@ -220,12 +220,12 @@ module.exports = {
 
     (async () => {
       try {
-        const expensesDeleted = await expensesService.delete({
+        const expensesDeleted = await expensesService.remove({
           expenseSetId: req.params.expenseSetId,
           userId: req.session.userId
         });
 
-        const expenseSetDeleted = await expenseSetsService.delete({
+        const expenseSetDeleted = await expenseSetsService.remove({
           expenseSetId: req.params.expenseSetId,
           userId: req.session.userId
         });

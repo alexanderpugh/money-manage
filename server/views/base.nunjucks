@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Money Manage</title>
+    <title>Money Manage | Personal Finance Manager</title>
 
     {% block cssLinks %}
     <link rel="stylesheet" href="{{ SITE_URL }}/style.css">

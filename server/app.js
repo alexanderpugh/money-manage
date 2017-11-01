@@ -1,13 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const session = require('express-session')
+const session = require('express-session');
+
+require('./config/jsExtensions');
 
 const nunjucksConfig = require('./config/nunjucks.config');
 
-const homeController = require('./controllers/Home/');
-const expensesController = require('./controllers/Expenses/');
-const registrationController = require('./controllers/Registration/');
+const homeController = require('./controllers/Home');
+const expensesController = require('./controllers/Expenses');
+const registrationController = require('./controllers/Registration');
+const salaryCalcController = require('./controllers/SalaryCalc');
+const settingsController = require('./controllers/Settings');
 const sessionCheckMiddleware = require('./middleware/sessionCheck.middleware');
 
 const app = express();
@@ -29,6 +33,8 @@ app.use(registrationController.base, registrationController.router);
 app.use(sessionCheckMiddleware);
 app.use(homeController.base, homeController.router);
 app.use(expensesController.base, expensesController.router);
+app.use(salaryCalcController.base, salaryCalcController.router);
+app.use(settingsController.base, settingsController.router);
 
 app.listen(port);
 console.log(`Listening at port ${port}`);
