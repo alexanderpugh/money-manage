@@ -34,6 +34,12 @@ module.exports = (connection) => {
       defaultValue: new Date(),
       allowNull: true,
       required: false
+    },
+    studentLoanPlan: {
+      type: Sequelize.ENUM('N/A', 'PLAN_1', 'PLAN_2'),
+      defaultValue: 'N/A',
+      allowNull: true,
+      required: false
     }
   });
 

@@ -93,7 +93,8 @@ module.exports.getDetails = async ({ userId }) => {
     return {
       firstName: searchedUser.firstName,
       lastName: searchedUser.lastName,
-      dob: searchedUser.dob
+      dob: searchedUser.dob,
+      studentLoanPlan: searchedUser.studentLoanPlan
     };
 
   } catch (error) {
@@ -101,9 +102,9 @@ module.exports.getDetails = async ({ userId }) => {
   }
 };
 
-module.exports.updateDetails = async ({ userId, firstName, lastName, dob }) => {
+module.exports.updateDetails = async ({ userId, firstName, lastName, dob, studentLoanPlan }) => {
   try {
-    return await db.users.update({ firstName, lastName, dob }, {
+    return await db.users.update({ firstName, lastName, dob, studentLoanPlan }, {
       where: {
         id: userId
       }

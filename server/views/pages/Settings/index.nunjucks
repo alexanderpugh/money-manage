@@ -17,6 +17,24 @@
             <label class="control-label" for="inputSuccess">DOB:</label>
             <input type="date" class="form-control" name="dob" required value="{{ vm.userDetails.dob | date }}">
           </div>
+          <div class="form-group {% if vm.success %}has-success{% endif %}">
+            <label class="control-label">Student Loan:</div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="studentloanplan" value="PLAN_1" {% if vm.userDetails.studentLoanPlan == 'PLAN_1' %}checked{% endif %}> Plan 1 (started before September 2012)
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="studentloanplan" value="PLAN_2" {% if vm.userDetails.studentLoanPlan == 'PLAN_2' %}checked{% endif %}> Plan 2 (started after September 2012)
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="studentloanplan" value="N/A" {% if vm.userDetails.studentLoanPlan == 'N/A' %}checked{% endif %}> N/A (You don't pay student loans)
+              </label>
+            </div>
+          </div>
           <div class="form-group">
             <button type="reset" class="btn btn-warning">Undo</button>
             <button type="submit" class="btn btn-primary">Save</button>

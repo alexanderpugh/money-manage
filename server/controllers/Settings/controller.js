@@ -28,7 +28,8 @@ module.exports = {
           userId: req.session.userId,
           firstName: req.body.firstname,
           lastName: req.body.lastname,
-          dob: new Date(req.body.dob)
+          dob: new Date(req.body.dob),
+          studentLoanPlan: req.body.studentloanplan
         });
 
         res.redirect(`${base}?success=1`);
