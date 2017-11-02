@@ -1,11 +1,11 @@
-const createObjectConstructorWithDefaults = require('../../utilities/createObjectConstructorWithDefaults');
+const createFactory = require('../../utilities/createFactory');
 const expenseSetsService = require('../../services/expenseSets.service');
 const userService = require('../../services/users.service');
 const expensesService = require('../../services/expenses.service');
 const fsAsync = require('../../utilities/fsAsync');
 const jsonUtil = require('../../utilities/json.util');
 
-const createVm = createObjectConstructorWithDefaults({ currentPage: 'HOME' });
+const createVm = createFactory({ currentPage: 'HOME' });
 
 module.exports = {
   indexPage({ req, res, next }) {

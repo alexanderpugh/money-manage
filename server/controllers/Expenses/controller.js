@@ -1,8 +1,8 @@
 const expenseSetsService = require('../../services/expenseSets.service');
 const expensesService = require('../../services/expenses.service');
-const createObjectConstructorWithDefaults = require('../../utilities/createObjectConstructorWithDefaults');
+const createFactory = require('../../utilities/createFactory');
 
-const createVm = createObjectConstructorWithDefaults({ currentPage: 'EXPENSES' });
+const createVm = createFactory({ currentPage: 'EXPENSES' });
 
 module.exports = {
   indexPage({ req, res, next }) {

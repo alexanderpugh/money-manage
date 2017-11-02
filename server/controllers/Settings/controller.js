@@ -1,7 +1,7 @@
 const usersService = require('../../services/users.service');
-const createObjectConstructorWithDefaults = require('../../utilities/createObjectConstructorWithDefaults');
+const createFactory = require('../../utilities/createFactory');
 
-const createVm = createObjectConstructorWithDefaults({ currentPage: 'SETTINGS' });
+const createVm = createFactory({ currentPage: 'SETTINGS' });
 
 module.exports = {
   indexPage({ req, res, next }) {

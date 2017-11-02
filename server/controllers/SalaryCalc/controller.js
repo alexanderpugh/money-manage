@@ -1,6 +1,6 @@
-const createObjectConstructorWithDefaults = require('../../utilities/createObjectConstructorWithDefaults');
+const createFactory = require('../../utilities/createFactory');
 
-const createVm = createObjectConstructorWithDefaults({ currentPage: 'SALARY_CALC' });
+const createVm = createFactory({ currentPage: 'SALARY_CALC' });
 
 module.exports = {
   indexPage({ req, res, next }) {
