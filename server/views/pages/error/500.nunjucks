@@ -5,9 +5,11 @@
     <div class="jumbotron">
       <h1>500</h1>
       <p>Something went wrong...</p>
-      <pre>
-        {{ vm.error }}
-      </pre>
+      {% if not IN_PRODUCTION %}
+        <pre>
+          {{ vm.error }}
+        </pre>
+      {% endif %}
     </div>
   </div>
 {% endblock %}

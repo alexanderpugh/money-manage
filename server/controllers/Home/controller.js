@@ -60,7 +60,7 @@ module.exports = {
 
         if (!expenseSetsService.collectionValid(json)) {
           throw new Error('ERROR: user tried to upload json that is invalid');
-        }
+        };
 
         await uploadJsonToDB({ expenseSets: json.expenseSets, req });
 
