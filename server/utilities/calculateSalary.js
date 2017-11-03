@@ -125,9 +125,9 @@ const calculateTaxableIncome = income => {
 /**
  * Calculate the actual salary after deductions
  *
- * @param {object}
- * @param {object.number} incomeYearly - the income before reductions
- * @param {object.string} studentLoanPlan - the student loan plan someone is on - N/A, PLAN_1, PLAN_2
+ * @param {object} param
+ * @param {number} param.incomeYearly - the income before reductions
+ * @param {string} param.studentLoanPlan - the student loan plan someone is on - N/A, PLAN_1, PLAN_2
  */
 const calculateSalary = ({ incomeYearly, studentLoanPlan }) => {
   if (!_.isNumber(incomeYearly)) {

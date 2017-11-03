@@ -4,8 +4,15 @@
   <div class="container">
     <div class="row">
       <div class="col col-md-12">
-        Salary Calc comming soon.
+        {% if vm.salaryAssessment == null %}
+          <p>Enter your annual salary in the input below.</p>
+        {% else %}
+          {% include './partials/resultsView.nunjucks' %}
+        {% endif %}
       </div>
+    </div>
+    <div class="row">
+      {% include './partials/form.nunjucks' %}
     </div>
   </div>
 {% endblock %}

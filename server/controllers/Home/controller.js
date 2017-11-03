@@ -14,6 +14,7 @@ module.exports = {
       try {
         vm.expenseSetsTotal = await expenseSetsService.getTotalYearlyTotal({ userId: req.session.userId });
         vm.userDetails = await userService.getDetails({ userId: req.session.userId });
+        vm.salaryAssessment = await userService.fetchSalaryAssessment({ userId: req.session.userId });
 
         res.render('pages/Home/index.nunjucks', { vm });
       } catch (error) {

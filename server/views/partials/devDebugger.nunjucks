@@ -12,9 +12,9 @@
     $loginForm.submit();
   {% endif %}
 
-  // go to expenses page
+  // go to settings page
   {% if vm.currentPage == 'HOME' %}
-    //window.location.href = '{{ SITE_URL }}/expenses';
+    //window.location.href = '{{ SITE_URL }}/salary-calc';
   {% endif %}
 </script>
 

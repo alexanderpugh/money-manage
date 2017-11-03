@@ -1,6 +1,9 @@
+const _ = require('lodash');
+
 const db = require('../config/db.js');
 const valueValid = require('../utilities/valueValid');
 const saltValue = require('../utilities/saltValue');
+const calculateSalary = require('../utilities/calculateSalary');
 
 const passwordRuleRegX = /^([a-zA-Z0-9_-]){3,10}$/;
 
@@ -56,7 +59,6 @@ module.exports.login = async ({ username, password }) => {
     }
 
     return searchedUser;
-
   } catch (error) {
     throw error;
   }
@@ -71,24 +73,24 @@ module.exports.login = async ({ username, password }) => {
  */
 module.exports.userExists = async ({ username }) => {
   try {
-    const searchedUser = await db.users.findOne({
-      where: { username }
-    });
+    const searchedUser = await db.users.findOne({ where: { username } });
 
     return Boolean(searchedUser);
-
   } catch (error) {
     throw error;
   }
 };
 
+/**
+ * Fetch a users details
+ *
+ * @param {object} param
+ * @param {string} param.userId
+ * @return {object}
+ */
 module.exports.getDetails = async ({ userId }) => {
   try {
-    const searchedUser = await db.users.findOne({
-      where: {
-        id: userId
-      }
-    });
+    const searchedUser = await db.users.findOne({ where: { id: userId } });
 
     return {
       firstName: searchedUser.firstName,
@@ -96,20 +98,71 @@ module.exports.getDetails = async ({ userId }) => {
       dob: searchedUser.dob,
       studentLoanPlan: searchedUser.studentLoanPlan
     };
+  } catch (error) {
+    throw error;
+  }
+};
+
+/**
+ * Update a users details
+ *
+ * @param {string} param.userId
+ * @param {string} param.firstName
+ * @param {string} param.lastName
+ * @param {date} param.dob
+ * @param {string} param.studentLoanPlan
+ * @return {object}
+ */
+module.exports.updateDetails = async ({ userId, firstName, lastName, dob, studentLoanPlan }) => {
+  try {
+    return await db.users.update({ firstName, lastName, dob, studentLoanPlan }, {
+      where: { id: userId }
+    });
 
   } catch (error) {
     throw error;
   }
 };
 
-module.exports.updateDetails = async ({ userId, firstName, lastName, dob, studentLoanPlan }) => {
+/**
+ * Fetch a users salary assessment
+ *
+ * @param {object} param
+ * @param {string} param.userId
+ * @return {object}
+ */
+module.exports.fetchSalaryAssessment = async ({ userId }) => {
   try {
-    return await db.users.update({ firstName, lastName, dob, studentLoanPlan }, {
-      where: {
-        id: userId
-      }
+    const assessment = await db.salaryAssessment.findOne({ where: { userId } });
+
+    return assessment;
+  } catch (error) {
+    throw error;
+  }
+};
+
+/**
+ * Update / create a users salary assessment
+ *
+ * @param {object} param
+ * @param {string} param.userId
+ * @param {number} param.incomeYearly
+ * @return {object}
+ */
+module.exports.updateSalaryAssessment = async ({ userId, incomeYearly, assessmentId }) => {
+  try {
+    const userDetails = await db.users.findOne({ where: { id: userId } });
+    const calculatedAssessment = calculateSalary({
+      incomeYearly: _.toNumber(incomeYearly),
+      studentLoanPlan: userDetails.studentLoanPlan
     });
 
+    return await db.salaryAssessment.upsert({
+      ...calculatedAssessment,
+      userId,
+      incomeYearly: _.toNumber(incomeYearly),
+      id: assessmentId
+    });
   } catch (error) {
     throw error;
   }
