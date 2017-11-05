@@ -24,4 +24,13 @@ module.exports = ({ app }) => {
   config.addFilter('decimal', value => decimal(value));
 
   config.addFilter('date', date => date.formatForHTML());
+
+  /** display a yearly amount by monthly amounts */
+  config.addFilter('monthly', value => decimal(value / 12));
+
+  /** display a yearly amount by weekly amounts */
+  config.addFilter('weekly', value => decimal(value / 52));
+
+  /** display a yearly amount by daily amounts */
+  config.addFilter('daily', value => decimal(value / 365.25));
 };

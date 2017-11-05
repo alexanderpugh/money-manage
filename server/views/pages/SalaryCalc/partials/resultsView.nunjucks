@@ -13,44 +13,44 @@
       <tr>
         <td><b>Gross Income</b></td>
         <td>£ {{ vm.salaryAssessment.incomeYearly | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.incomeYearly / 12) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.incomeYearly / 52) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.incomeYearly / 365.25) | decimal }}</td>
+        <td>£ {{ vm.salaryAssessment.incomeYearly | monthly }}</td>
+        <td>£ {{ vm.salaryAssessment.incomeYearly | weekly }}</td>
+        <td>£ {{ vm.salaryAssessment.incomeYearly | daily }}</td>
       </tr>
       <tr>
         <td><b>Taxable Income</b></td>
         <td>£ {{ vm.salaryAssessment.taxableYearly | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.taxableYearly / 12) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.taxableYearly / 52) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.taxableYearly / 365.25) | decimal }}</td>
+        <td>£ {{ vm.salaryAssessment.taxableYearly | monthly }}</td>
+        <td>£ {{ vm.salaryAssessment.taxableYearly | weekly }}</td>
+        <td>£ {{ vm.salaryAssessment.taxableYearly | daily }}</td>
       </tr>
       <tr>
         <td><b>Income Tax</b></td>
         <td>£ {{ vm.salaryAssessment.incomeTaxYearly | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.incomeTaxYearly / 12) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.incomeTaxYearly / 52) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.incomeTaxYearly / 365.25) | decimal }}</td>
+        <td>£ {{ vm.salaryAssessment.incomeTaxYearly | monthly }}</td>
+        <td>£ {{ vm.salaryAssessment.incomeTaxYearly | weekly }}</td>
+        <td>£ {{ vm.salaryAssessment.incomeTaxYearly | daily }}</td>
       </tr>
       <tr>
         <td><b>National Insurance</b></td>
         <td>£ {{ vm.salaryAssessment.nationalInsuranceYearly | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.nationalInsuranceYearly / 12) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.nationalInsuranceYearly / 52) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.nationalInsuranceYearly / 365.25) | decimal }}</td>
+        <td>£ {{ vm.salaryAssessment.nationalInsuranceYearly | monthly }}</td>
+        <td>£ {{ vm.salaryAssessment.nationalInsuranceYearly | weekly }}</td>
+        <td>£ {{ vm.salaryAssessment.nationalInsuranceYearly | daily }}</td>
       </tr>
       <tr>
         <td><b>Student Loan</b></td>
         <td>£ {{ vm.salaryAssessment.studentLoanYearly | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.studentLoanYearly / 12) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.studentLoanYearly / 52) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.studentLoanYearly / 365.25) | decimal }}</td>
+        <td>£ {{ vm.salaryAssessment.studentLoanYearly | monthly }}</td>
+        <td>£ {{ vm.salaryAssessment.studentLoanYearly | weekly }}</td>
+        <td>£ {{ vm.salaryAssessment.studentLoanYearly | daily }}</td>
       </tr>
       <tr>
         <td><b>Take Home</b></td>
         <td>£ {{ vm.salaryAssessment.takeHomeYearly | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.takeHomeYearly / 12) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.takeHomeYearly / 52) | decimal }}</td>
-        <td>£ {{ (vm.salaryAssessment.takeHomeYearly / 365.25) | decimal }}</td>
+        <td>£ {{ vm.salaryAssessment.takeHomeYearly | monthly }}</td>
+        <td>£ {{ vm.salaryAssessment.takeHomeYearly | weekly }}</td>
+        <td>£ {{ vm.salaryAssessment.takeHomeYearly | daily }}</td>
       </tr>
     </tbody>
   </table>
