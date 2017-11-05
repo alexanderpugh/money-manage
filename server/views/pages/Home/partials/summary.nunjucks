@@ -1,0 +1,43 @@
+<h5>Summary</h5>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Yearly</th>
+        <th>Monthly</th>
+        <th>Weekly</th>
+        <th>Daily</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Gross Income</b></td>
+        <td>£ {{ vm.salaryAssessment.incomeYearly | decimal }}</td>
+        <td>£ {{ (vm.salaryAssessment.incomeYearly / 12) | decimal }}</td>
+        <td>£ {{ (vm.salaryAssessment.incomeYearly / 52) | decimal }}</td>
+        <td>£ {{ (vm.salaryAssessment.incomeYearly / 365.25) | decimal }}</td>
+      </tr>
+        <td><b>Take Home</b></td>
+        <td>£ {{ vm.salaryAssessment.takeHomeYearly | decimal }}</td>
+        <td>£ {{ (vm.salaryAssessment.takeHomeYearly / 12) | decimal }}</td>
+        <td>£ {{ (vm.salaryAssessment.takeHomeYearly / 52) | decimal }}</td>
+        <td>£ {{ (vm.salaryAssessment.takeHomeYearly / 365.25) | decimal }}</td>
+      </tr>
+      </tr>
+        <td><b>Outgoings</b></td>
+        <td>£ {{ vm.expenseSetsTotal | decimal }}</td>
+        <td>£ {{ (vm.expenseSetsTotal / 12) | decimal }}</td>
+        <td>£ {{ (vm.expenseSetsTotal / 52) | decimal }}</td>
+        <td>£ {{ (vm.expenseSetsTotal / 365.25) | decimal }}</td>
+      </tr>
+      </tr>
+        <td><b>Remaining</b></td>
+        <td>£ {{ (vm.salaryAssessment.takeHomeYearly - vm.expenseSetsTotal) | decimal }}</td>
+        <td>£ {{ ((vm.salaryAssessment.incomeYearly / 12) - (vm.expenseSetsTotal / 12)) | decimal }}</td>
+        <td>£ {{ ((vm.salaryAssessment.incomeYearly / 52) - (vm.expenseSetsTotal / 52)) | decimal }}</td>
+        <td>£ {{ ((vm.salaryAssessment.incomeYearly / 365.25) - (vm.expenseSetsTotal / 365.25)) | decimal }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
