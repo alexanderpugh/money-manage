@@ -21,10 +21,13 @@
                     Yearly: £{{ expense.totalYearly  | decimal }}
                   </li>
                   <li>
-                    Monthly: £{{ (expense.totalYearly / 12) | decimal}}
+                    Monthly: £{{ expense.totalYearly | monthly}}
                   </li>
                   <li>
-                    Weekly: £{{ (expense.totalYearly / 52) | decimal }}
+                    Weekly: £{{ expense.totalYearly | weekly }}
+                  </li>
+                  <li>
+                    Daily: £{{ expense.totalYearly | daily }}
                   </li>
                 </ul>
               </td>

@@ -1,25 +1,35 @@
 <div class="row">
-  <div class="col col-sm-12 col-md-4 col-lg-4">
+  <div class="col col-sm-12 col-md-3 col-lg-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">TOTAL DAILY</h3>
+      </div>
+      <div class="panel-body">
+        £{{ set.totalYearly | daily }}
+      </div>
+    </div>
+  </div>
+  <div class="col col-sm-12 col-md-3 col-lg-3">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">TOTAL WEEKLY</h3>
       </div>
       <div class="panel-body">
-        £{{ (set.totalYearly / 52) | decimal }}
+        £{{ set.totalYearly | weekly }}
       </div>
     </div>
   </div>
-  <div class="col col-sm-12 col-md-4 col-lg-4">
+  <div class="col col-sm-12 col-md-3 col-lg-3">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">TOTAL MONTHLY</h3>
       </div>
       <div class="panel-body">
-        £{{ (set.totalYearly / 12) | decimal }}
+        £{{ set.totalYearly | monthly }}
       </div>
     </div>
   </div>
-  <div class="col col-sm-12 col-md-4 col-lg-4">
+  <div class="col col-sm-12 col-md-3 col-lg-3">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">TOTAL YEARLY</h3>
