@@ -1,7 +1,7 @@
-import Vue from 'vue/dist/vue.common';
-import _ from 'lodash';
+const Vue = require('vue/dist/vue.common');
+const _ = require('lodash');
 
-import decimal from '../../../server/utilities/decimal';
+const decimal = require('../../../server/utilities/decimal');
 
 const formElement = document.querySelector('form');
 const dataTotalYearlyAttrValue = parseFloat(formElement.getAttribute('data-totalYearly'));

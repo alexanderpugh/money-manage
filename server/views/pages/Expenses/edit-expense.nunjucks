@@ -59,5 +59,5 @@
 {% endblock %}
 
 {% block javascript %}
-  <script src="{{ SITE_URL }}/form.js"></script>
+  <script src="{{ SITE_URL }}/expense-editor.js"></script>
 {% endblock %}
