@@ -31,7 +31,7 @@
           <div class="col-lg-10">
             <div class="input-group">
               <span class="input-group-addon">£</span>
-              <input type="number" name="totalMonthly" step=0.01 v-model="totalMonthly" v-on:change="onTotalMonthlyChanged" class="form-control" id="totalMonthly" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ (vm.expense.totalYearly / 12) | decimal  }}{% endif %}">
+              <input type="number" name="totalMonthly" step=0.01 v-model="totalMonthly" v-on:change="onTotalMonthlyChanged" class="form-control" id="totalMonthly" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ (vm.expense.totalYearly | monthly) | decimal  }}{% endif %}">
             </div>
           </div>
         </div>
@@ -40,7 +40,17 @@
           <div class="col-lg-10">
             <div class="input-group">
               <span class="input-group-addon">£</span>
-              <input type="number" name="totalWeekly" step=0.01 v-model="totalWeekly" v-on:change="onTotalWeeklyChanged" class="form-control" id="totalWeekly" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ (vm.expense.totalYearly / 52) | decimal }}{% endif %}">
+              <input type="number" name="totalWeekly" step=0.01 v-model="totalWeekly" v-on:change="onTotalWeeklyChanged" class="form-control" id="totalWeekly" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ (vm.expense.totalYearly | weekly) | decimal }}{% endif %}">
+            </div>
+            <span class="help-block"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="totalWeekly" class="col-lg-2 control-label">Total Daily</label>
+          <div class="col-lg-10">
+            <div class="input-group">
+              <span class="input-group-addon">£</span>
+              <input type="number" name="totalWeekly" step=0.01 v-model="totalDaily" v-on:change="onTotalDailyChanged" class="form-control" id="totalDaily" value="{% if vm.subPage == 'EDIT_EXPENSE' %}{{ (vm.expense.totalYearly | daily) | decimal }}{% endif %}">
             </div>
             <span class="help-block"></span>
           </div>

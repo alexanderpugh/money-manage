@@ -16,7 +16,6 @@ const sessionCheckMiddleware = require('./middleware/sessionCheck.middleware');
 const notFoundMiddleware = require('./middleware/404.middleware');
 
 const app = express();
-const port = 3000;
 
 app.set('trust proxy', 1);
 app.use(session({
@@ -38,5 +37,4 @@ app.use(salaryCalcController.base, salaryCalcController.router);
 app.use(settingsController.base, settingsController.router);
 app.use(notFoundMiddleware);
 
-app.listen(port);
-console.log(`Listening at port ${port}`);
+module.exports = app;
