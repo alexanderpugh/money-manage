@@ -1,4 +1,4 @@
-server/data/*
+server/data/data.sqlite
 node_modules/
 TODO.md
 yarn-error.log
