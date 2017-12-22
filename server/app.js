@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
 
-require('./config/jsExtensions');
-
 const nunjucksConfig = require('./config/nunjucks.config');
 
 const homeController = require('./controllers/Home');
