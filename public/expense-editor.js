@@ -201,20 +201,29 @@ var app = new Vue({
   data: {
     totalYearly: defaultTotalYearly,
     totalMonthly: decimal(defaultTotalYearly / 12),
-    totalWeekly: decimal(defaultTotalYearly / 52)
+    totalWeekly: decimal(defaultTotalYearly / 52),
+    totalDaily: decimal(defaultTotalYearly / 365.25)
   },
   methods: {
     onTotalWeeklyChanged: function onTotalWeeklyChanged() {
       this.totalYearly = decimal(this.totalWeekly * 52);
       this.totalMonthly = decimal(this.totalWeekly * 12);
+      this.totalDaily = decimal(this.totalYearly / 365.25);
     },
     onTotalMonthlyChanged: function onTotalMonthlyChanged() {
       this.totalYearly = decimal(this.totalMonthly * 12);
       this.totalWeekly = decimal(this.totalYearly / 52);
+      this.totalDaily = decimal(this.totalYearly / 365.25);
     },
     onTotalYearlyChanged: function onTotalYearlyChanged() {
       this.totalMonthly = decimal(this.totalYearly / 12);
       this.totalWeekly = decimal(this.totalYearly / 52);
+      this.totalDaily = decimal(this.totalYearly / 365.25);
+    },
+    onTotalDailyChanged: function onTotalDailyChanged() {
+      this.totalMonthly = decimal(this.totalYearly / 12);
+      this.totalWeekly = decimal(this.totalYearly / 52);
+      this.totalYearly = decimal(this.totalWeekly * 365.25);
     }
   }
 });

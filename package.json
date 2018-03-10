@@ -1,13 +1,13 @@
 {
   "name": "moneymanage",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal finance manager",
   "main": "server/index.js",
   "scripts": {
-    "dev:server": "cross-env NODE_ENV=development nodemon --inspect server/index.js",
-    "prod:server": "cross-env NODE_ENV=production node server/index.js",
-    "prod:client": "browserify client/expense-editor/src/index.js -o public/expense-editor.js -t [ babelify --presets [ env ] ]",
-    "build:docs": "jsdoc -c jsdoc.json",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --inspect server/index.js",
+    "build": "browserify client/expense-editor/src/index.js -o public/expense-editor.js -t [ babelify --presets [ env ] ]",
+    "docs": "jsdoc -c jsdoc.json",
     "test": "jest --watch"
   },
   "author": "Alexander Pugh",
@@ -38,6 +38,7 @@
     "jest": "^21.2.1",
     "jsdoc": "^3.5.5",
     "superagent": "^3.8.2",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "concurrently": "^3.5.1"
   }
 }
