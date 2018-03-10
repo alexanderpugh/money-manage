@@ -7,7 +7,9 @@
         <h1>Money Manage</h1>
         <h4>Personal Finance Manager</h4>
         <p>Hello {{ vm.userDetails.firstName }} {{ vm.userDetails.lastName }}</p>
-        {% include './partials/summary.nunjucks' %}
+        {% if vm.salaryAssessment.incomeYearly %}
+          {% include './partials/summary.nunjucks' %}
+        {% endif %}
       </div>
     </div>
   </div>

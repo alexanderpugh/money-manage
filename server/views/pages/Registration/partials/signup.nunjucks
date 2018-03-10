@@ -5,15 +5,15 @@
   <form class="form-horizontal" method="post" id="signup-form" action="{{ SITE_URL }}/registration/signup">
     <fieldset>
       <div class="form-group {% if vm.signupError %}has-error{% endif %}">
-        <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+        <label for="inputUsernameSignup" class="col-lg-2 control-label">Username</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" name="username" id="inputUsername" required placeholder="Username">
+          <input type="text" class="form-control" name="username" id="inputUsernameSignup" required placeholder="Username">
         </div>
       </div>
       <div class="form-group {% if vm.signupError %}has-error{% endif %}">
-        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+        <label for="inputPasswordSignup" class="col-lg-2 control-label">Password</label>
         <div class="col-lg-10">
-          <input type="password" name="password" class="form-control" required id="inputPassword" placeholder="Password">
+          <input type="password" name="password" class="form-control" required id="inputPasswordSignup" placeholder="Password">
         </div>
       </div>
       <div class="form-group">

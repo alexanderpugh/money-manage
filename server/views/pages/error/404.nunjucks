@@ -4,7 +4,7 @@
   <div class="container">
     <div class="jumbotron">
       <h1>404</h1>
-      <p>These aren't the pages pages you're looking for</p>
+      <p>These aren't the pages you're looking for</p>
     </div>
   </div>
 {% endblock %}

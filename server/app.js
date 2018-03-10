@@ -4,6 +4,8 @@ const path = require('path');
 const session = require('express-session');
 
 const nunjucksConfig = require('./config/nunjucks.config');
+const store = require('./config/sessionStore');
+const { SESSION_SECRET } = require('./config/keys');
 
 const homeController = require('./controllers/Home');
 const expensesController = require('./controllers/Expenses');
@@ -17,8 +19,10 @@ const app = express();
 
 app.set('trust proxy', 1);
 app.use(session({
-  secret: 'session secret',
-  resave: true
+  secret: SESSION_SECRET,
+  store,
+  resave: false,
+  proxy: true
 }));
 
 nunjucksConfig({ app });

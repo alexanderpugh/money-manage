@@ -18,20 +18,21 @@
         <td>£ {{ vm.salaryAssessment.incomeYearly | weekly }}</td>
         <td>£ {{ vm.salaryAssessment.incomeYearly | daily }}</td>
       </tr>
+      <tr>
         <td><b>Take Home</b></td>
         <td>£ {{ vm.salaryAssessment.takeHomeYearly | decimal }}</td>
         <td>£ {{ vm.salaryAssessment.takeHomeYearly | monthly }}</td>
         <td>£ {{ vm.salaryAssessment.takeHomeYearly | weekly }}</td>
         <td>£ {{ vm.salaryAssessment.takeHomeYearly | daily }}</td>
       </tr>
-      </tr>
+      <tr>
         <td><b>Outgoings</b></td>
         <td>£ {{ vm.expenseSetsTotal | decimal }}</td>
         <td>£ {{ vm.expenseSetsTotal | monthly }}</td>
         <td>£ {{ vm.expenseSetsTotal | weekly }}</td>
         <td>£ {{ vm.expenseSetsTotal | daily }}</td>
       </tr>
-      </tr>
+      <tr>
         <td><b>Remaining</b></td>
         <td>£ {{ (vm.salaryAssessment.takeHomeYearly - vm.expenseSetsTotal) | decimal }}</td>
         <td>£ {{ (vm.salaryAssessment.takeHomeYearly - vm.expenseSetsTotal) | monthly }}</td>

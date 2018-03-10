@@ -1,6 +1,6 @@
 <script>
   // Login to dev or signup
-  {% if vm.loginError %}
+  {# {% if vm.loginError %}
     var $loginForm = document.querySelector('#signup-form');
     $loginForm.querySelector('input').value = 'dev';
     $loginForm.querySelectorAll('input')[1].value = 'password';
@@ -10,7 +10,7 @@
     $loginForm.querySelector('input').value = 'dev';
     $loginForm.querySelectorAll('input')[1].value = 'password';
     $loginForm.submit();
-  {% endif %}
+  {% endif %} #}
 
   // go to settings page
   {% if vm.currentPage == 'HOME' %}

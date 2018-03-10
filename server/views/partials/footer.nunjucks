@@ -1,4 +1,6 @@
 <footer class="text-center">
   <hr>
+  <a href="https://github.com/alexanderpugh/money-manage" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+  <br>
   Developed by Alexander Pugh
 </footer>
