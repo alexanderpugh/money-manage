@@ -17,8 +17,6 @@ module.exports = ({ app }) => {
     watch: true
   });
 
-  config.addGlobal('SITE_URL', 'http://localhost:3000');
-
   config.addGlobal('IN_PRODUCTION', process.env.NODE_ENV !== 'development');
 
   config.addFilter('decimal', value => decimal(value));

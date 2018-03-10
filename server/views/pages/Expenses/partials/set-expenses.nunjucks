@@ -32,8 +32,8 @@
                 </ul>
               </td>
               <td>
-                <form action="{{ SITE_URL }}/expenses/edit-set-{{ set.id }}/delete-{{ expense.id }}" method="post">
-                  <a href="{{ SITE_URL }}/expenses/edit-set-{{ set.id }}/{{ expense.id }}" class="btn btn-info btn-xs">
+                <form action="/expenses/edit-set-{{ set.id }}/delete-{{ expense.id }}" method="post">
+                  <a href="/expenses/edit-set-{{ set.id }}/{{ expense.id }}" class="btn btn-info btn-xs">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     edit
                   </a>
@@ -48,7 +48,7 @@
         </tbody>
       </table>
     </div>
-    <a href="{{ SITE_URL }}/expenses/edit-set-{{ set.id }}/create-expense" class="btn btn-success btn-sm">
+    <a href="/expenses/edit-set-{{ set.id }}/create-expense" class="btn btn-success btn-sm">
       <i class="fa fa-plus" aria-hidden="true"></i>
       create new expense
     </a>

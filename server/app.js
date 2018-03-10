@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
+const compression = require('compression');
 
 const nunjucksConfig = require('./config/nunjucks.config');
 const store = require('./config/sessionStore');
@@ -24,6 +25,7 @@ app.use(session({
   resave: false,
   proxy: true
 }));
+app.use(compression());
 
 nunjucksConfig({ app });
 

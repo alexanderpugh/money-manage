@@ -14,7 +14,7 @@
 
   // go to settings page
   {% if vm.currentPage == 'HOME' %}
-    //window.location.href = '{{ SITE_URL }}/salary-calc';
+    //window.location.href = '/salary-calc';
   {% endif %}
 </script>
 

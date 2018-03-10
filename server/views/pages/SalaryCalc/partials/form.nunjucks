@@ -1,5 +1,5 @@
 <div class="col col-sm-12 col-md-4 col-lg-4">
-  <form action="{{ SITE_URL }}/salary-calc/update" method="post">
+  <form action="/salary-calc/update" method="post">
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon">£</span>

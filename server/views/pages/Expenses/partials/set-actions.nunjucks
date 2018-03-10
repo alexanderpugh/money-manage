@@ -1,12 +1,12 @@
 {% if vm.unsafe %}
-  <form method="post" action="{{ SITE_URL }}/expenses/delete-set-{{ set.id }}" id="expense-set-form-{{ set.id }}"></form>
+  <form method="post" action="/expenses/delete-set-{{ set.id }}" id="expense-set-form-{{ set.id }}"></form>
 {% endif %}
 <div class="row">
   <div class="col col-sm-12">
     <h3>{{ set.name }}</h3>
     <p class="lead">
       {{ set.description }}
-      <a class="btn btn-info btn-xs" href="{{ SITE_URL }}/expenses/edit-set-{{ set.id }}">
+      <a class="btn btn-info btn-xs" href="/expenses/edit-set-{{ set.id }}">
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         edit set
       </a>

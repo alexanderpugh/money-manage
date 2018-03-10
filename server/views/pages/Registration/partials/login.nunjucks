@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">Login</h3>
   </div>
-  <form class="form-horizontal" method="post" action="{{ SITE_URL }}/registration/login" id="login-form">
+  <form class="form-horizontal" method="post" action="/registration/login" id="login-form">
     <fieldset>
       <div class="form-group {% if vm.loginError %}has-error{% endif %}">
         <label for="inputUsernameLogin" class="col-lg-2 control-label">Username</label>
