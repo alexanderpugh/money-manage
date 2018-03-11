@@ -1,9 +1,11 @@
 const Sequelize = require('sequelize');
 const path = require('path');
 
-const connection = new Sequelize('moneymanage', 'root', 'password', {
-  host: 'localhost',
-  dialect: 'sqlite',
+const { DB_DIALECT, DB_HOST, DB_NAME, DB_PASSWORD, DB_USER } = require('./keys');
+
+const connection = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+  host: DB_HOST,
+  dialect: DB_DIALECT,
 
   pool: {
     max: 5,
