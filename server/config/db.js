@@ -1,19 +1,21 @@
 const Sequelize = require('sequelize');
 const path = require('path');
 
-const { DB_DIALECT, DB_HOST, DB_NAME, DB_PASSWORD, DB_USER } = require('./keys');
+const { DB_DIALECT, DB_URL } = require('./keys');
 
-const connection = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-  host: DB_HOST,
-  dialect: DB_DIALECT,
+const config = {
+  dialect: DB_DIALECT
+};
 
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  },
-  storage: path.resolve(__dirname, '../data/data.sqlite')
-});
+if (DB_DIALECT === 'sqlite') {
+  config.storage = path.resolve(__dirname, '../data/data.sqlite');
+} else {
+  config.dialectOptions = {
+    ssl: true
+  };
+}
+
+const connection = new Sequelize(DB_URL, config);
 
 const db = {};
 const force = false;
