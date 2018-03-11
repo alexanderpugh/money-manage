@@ -1,3 +1,5 @@
+const logger = require('heroku-logger');
+
 const expenseSetsService = require('../../services/expenseSets.service');
 const expensesService = require('../../services/expenses.service');
 const createFactory = require('../../utilities/createFactory');
@@ -18,6 +20,7 @@ module.exports = {
 
         res.render('pages/Expenses/index.nunjucks', { vm });
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });
@@ -52,6 +55,7 @@ module.exports = {
         res.redirect(`${base}#expense-set-${newSet.id}`);
 
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });
@@ -71,6 +75,7 @@ module.exports = {
         });
         res.render('pages/Expenses/edit-set.nunjucks', { vm });
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });
@@ -93,6 +98,7 @@ module.exports = {
         res.redirect(`${base}#expense-set-${editedExpenseSet.id}`);
 
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });
@@ -114,6 +120,7 @@ module.exports = {
 
         res.render('pages/Expenses/edit-expense.nunjucks', { vm });
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });
@@ -138,6 +145,7 @@ module.exports = {
         res.redirect(`${base}#expense-set-${req.params.expenseSetId}`);
 
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });
@@ -175,6 +183,7 @@ module.exports = {
         res.redirect(`${base}#expense-set-${newExpense.id}`);
 
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });
@@ -208,6 +217,7 @@ module.exports = {
         res.redirect(`${base}#expense-set-${req.params.expenseSetId}`);
 
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });
@@ -232,6 +242,7 @@ module.exports = {
         res.redirect(base);
 
       } catch (error) {
+        logger.error(error);
         res.status(500);
         vm.error = error;
         res.render('pages/error/500.nunjucks', { vm });

@@ -1,3 +1,5 @@
+const logger = require('heroku-logger');
+
 const createFactory = require('../../utilities/createFactory');
 const expenseSetsService = require('../../services/expenseSets.service');
 const userService = require('../../services/users.service');
@@ -74,7 +76,7 @@ module.exports = {
       try {
         await fsAsync.unlink(tempPath);
       } catch (error) {
-        console.error(error);
+        logger.error(error);
       }
     })();
   }
@@ -107,7 +109,7 @@ async function uploadJsonToDB ({ expenseSets, req }) {
       }));
     }));
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     throw error;
   }
 }

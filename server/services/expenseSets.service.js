@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const db = require('../config/db.js');
 const utils = require('./utilities/expenses.util');
 
@@ -16,7 +18,7 @@ const create = async ({ name, description, totalYearly = 0.00, userId }) => {
       name,
       description,
       userId,
-      totalYearly
+      totalYearly: _.toNumber(totalYearly)
     });
 
     return newExpenseSet;
@@ -45,7 +47,7 @@ const edit = async ({ name = null, description = null, userId, totalYearly = nul
     updatedInputs.description = description;
   }
   if (totalYearly) {
-    updatedInputs.totalYearly = totalYearly
+    updatedInputs.totalYearly = _.toNumber(totalYearly)
   }
 
   try {
@@ -77,7 +79,7 @@ const addToTotalYearly = async ({ value, userId, expenseSetId }) => {
     });
 
     const updated = await db.expenseSets.update({
-      totalYearly: current.totalYearly + parseFloat(value)
+      totalYearly: _.toNumber(current.totalYearly) + _.toNumber(value)
     }, {
         where: { userId, id: expenseSetId }
       });
@@ -107,7 +109,7 @@ const editTotalYearly = async ({ originalValue, newValue, userId, expenseSetId }
     });
 
     const updated = await db.expenseSets.update({
-      totalYearly: (current.totalYearly - parseFloat(originalValue)) + parseFloat(newValue)
+      totalYearly: (_.toNumber(current.totalYearly) - _.toNumber(originalValue)) + _.toNumber(newValue)
     }, {
         where: { userId, id: expenseSetId }
       });
@@ -174,7 +176,7 @@ const getTotalYearlyTotal = async ({ userId }) => {
 
     let total = 0;
     fetchedExpenseSets.forEach(set => {
-      total += set.totalYearly;
+      total += _.toNumber(set.totalYearly);
     });
 
     return total;

@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const db = require('../config/db.js');
 const expenseSetsService = require('./expenseSets.service');
 
@@ -14,7 +16,13 @@ const expenseSetsService = require('./expenseSets.service');
  */
 const create = async ({ name, description, totalYearly, userId, expenseSetId }) => {
   try {
-    const newExpense = await db.expenses.create({ name, description, totalYearly, userId, expenseSetId });
+    const newExpense = await db.expenses.create({
+      name,
+      description,
+      totalYearly: _.toNumber(totalYearly),
+      userId,
+      expenseSetId
+    });
 
     return newExpense;
   } catch (error) {
@@ -41,7 +49,7 @@ const edit = async ({ name, description, totalYearly, userId, expenseSetId, expe
     });
 
     const editedExpense = await db.expenses.update({
-      name, description, totalYearly
+      name, description, totalYearly: _.toNumber(totalYearly)
     },
       {
         where: { userId, expenseSetId, id: expenseId }
@@ -50,8 +58,8 @@ const edit = async ({ name, description, totalYearly, userId, expenseSetId, expe
     const editedExpenseSet = await expenseSetsService.editTotalYearly({
       userId,
       expenseSetId,
-      originalValue: currentExpense.totalYearly,
-      newValue: totalYearly
+      originalValue: _.toNumber(currentExpense.totalYearly),
+      newValue: _.toNumber(totalYearly)
     });
 
     return editedExpense;
