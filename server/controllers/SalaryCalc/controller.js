@@ -1,6 +1,5 @@
 const usersService = require('../../services/users.service');
 const createFactory = require('../../utilities/createFactory');
-const { calculateSalary } = require('../../utilities/calculateSalary');
 
 const createVm = createFactory({ currentPage: 'SALARY_CALC' });
 

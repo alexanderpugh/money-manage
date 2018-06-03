@@ -19,8 +19,8 @@ const studentLoanPlanValid = plan =>
  * @return {number}
  */
 const calculateStudentLoan = (income, plan) => {
-  const plan1Threshold = 17775;
-  const plan2Threshold = 21000;
+  const plan1Threshold = 18330;
+  const plan2Threshold = 25000;
 
   switch (plan) {
     case 'N/A':
@@ -39,8 +39,8 @@ const calculateStudentLoan = (income, plan) => {
  * @return {number}
  */
 const calculateNI = income => {
-  const weekAllowance = 157;
-  const mediumRange = 865;
+  const weekAllowance = 162;
+  const mediumRange = 892;
 
   const basicRate = 0.12;
   const additionalRate = 0.02;
@@ -72,7 +72,7 @@ const calculateIncomeTax = (income) => {
   const higherRate = 0.4;
   const additionalRate = 0.45;
 
-  const basicRangeEnd = 33500;
+  const basicRangeEnd = 46350;
   const higherRangeEnd = 150000;
 
   let tax = 0;
@@ -101,7 +101,7 @@ const calculateIncomeTax = (income) => {
  * @return {number}
  */
 const calculateTaxableIncome = income => {
-  const personalAllowance = 11500;
+  const personalAllowance = 11851;
   const upperLimit = 100000;
   const cutOff = 123000;
 
