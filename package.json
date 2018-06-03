@@ -9,7 +9,7 @@
     "withVars": "nodemon -r dotenv/config --inspect server/index.js",
     "build": "browserify client/expense-editor/src/index.js -o public/expense-editor.js -t [ babelify --presets [ env ] ]",
     "docs": "jsdoc -c jsdoc.json",
-    "test": "jest --watch"
+    "test": "jest --watch --coverage"
   },
   "author": "Alexander Pugh",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "lodash": "^4.17.4",
     "md5": "^2.2.1",
     "multer": "^1.3.0",
+    "mysql2": "^1.5.3",
     "nunjucks": "^3.0.1",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
@@ -41,11 +42,12 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-stage-0": "^6.24.1",
     "babelify": "^8.0.0",
+    "concurrently": "^3.5.1",
     "cross-env": "^5.0.5",
     "jest": "^21.2.1",
     "jsdoc": "^3.5.5",
+    "nodemon": "^1.17.5",
     "superagent": "^3.8.2",
-    "supertest": "^3.0.0",
-    "concurrently": "^3.5.1"
+    "supertest": "^3.0.0"
   }
 }
