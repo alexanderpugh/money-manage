@@ -2,6 +2,11 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 
 const decimal = require('../utilities/decimal');
+const {
+  ANNUAL_MONTHS,
+  ANNUAL_WEEKS,
+  ANNUAL_WORKING_DAYS
+} = require('../config/constants');
 
 /**
  * nunjucks config function
@@ -24,11 +29,11 @@ module.exports = ({ app }) => {
   config.addFilter('date', date => date.formatForHTML());
 
   /** display a yearly amount by monthly amounts */
-  config.addFilter('monthly', value => decimal(value / 12));
+  config.addFilter('monthly', value => decimal(value / ANNUAL_MONTHS));
 
   /** display a yearly amount by weekly amounts */
-  config.addFilter('weekly', value => decimal(value / 52));
+  config.addFilter('weekly', value => decimal(value / ANNUAL_WEEKS));
 
   /** display a yearly amount by daily amounts */
-  config.addFilter('daily', value => decimal(value / 365.25));
+  config.addFilter('daily', value => decimal(value / ANNUAL_WORKING_DAYS));
 };

@@ -1,0 +1,5 @@
+module.exports = {
+  ANNUAL_WORKING_DAYS: 260,
+  ANNUAL_MONTHS: 12,
+  ANNUAL_WEEKS: 52
+};
