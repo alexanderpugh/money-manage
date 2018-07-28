@@ -29,6 +29,8 @@ module.exports = {
   signupForm({ req, res, next, base }) {
     (async () => {
       try {
+        throw new Error('Signing up is currently disabled');//TODO remove
+        
         const username = req.body.username;
         const password = req.body.password;
 
